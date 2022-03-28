@@ -1,1 +1,1 @@
-# -seal_internal_search_engine
+# seal_internal_search_engine
