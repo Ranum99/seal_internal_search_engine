@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
+import Image from 'next/image';
+import logo from "../sealenglogopng.png"
 
 const Home = () => {
   const [search, setSearch] = useState("")
@@ -18,10 +20,14 @@ const Home = () => {
     setSearch(evt.currentTarget.value)
   }
 
+  const myLoader = ({ src, width, quality }) => {
+    return src
+  }
+
   return (
     <main>
       <section>
-        {/* <image src="sealenglogopng.png" alt="Logo for Seal Engineering AS" */}
+        <Image src={logo} alt="Logo for Seal Engineering AS" />
         <form onSubmit={handleSubmit}>
           {error && <p>{error}</p>}
           <input onChange={handleChange} placeholder="Skriv inn søk her..." type="text" value={search}/>
