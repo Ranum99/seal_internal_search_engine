@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import Image from 'next/image';
 import logo from "../sealenglogopng.png"
 
+
 const Home = () => {
   const [search, setSearch] = useState("")
   const [error, setError] = useState("")
@@ -18,10 +19,6 @@ const Home = () => {
 
   const handleChange = (evt) => {
     setSearch(evt.currentTarget.value)
-  }
-
-  const myLoader = ({ src, width, quality }) => {
-    return src
   }
 
   return (
