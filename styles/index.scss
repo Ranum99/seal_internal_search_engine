@@ -1,3 +1,20 @@
 main {
-    heihei
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    height: 80vh;
+}
+#logo{
+    width: 50%;
+    height: 50%;
+}
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+section{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }

@@ -24,7 +24,9 @@ const Home = () => {
   return (
     <main>
       <section>
+        <div id="logo">
         <Image src={logo} alt="Logo for Seal Engineering AS" />
+        </div>
         <form onSubmit={handleSubmit}>
           {error && <p>{error}</p>}
           <input onChange={handleChange} placeholder="Skriv inn søk her..." type="text" value={search}/>
