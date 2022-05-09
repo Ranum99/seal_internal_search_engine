@@ -23,9 +23,9 @@ const Home = () => {
   }
 
   return (
-    <main>
+    <main id="main">
       <section>
-        <Image src={logo} alt="Logo for Seal Engineering AS" />
+        <Image src={logo} id="logo" alt="Logo for Seal Engineering AS" />
         <form onSubmit={handleSubmit}>
           {error && <p>{error}</p>}
           <input onChange={handleChange} placeholder="Skriv inn søk her..." type="text" value={search}/>

@@ -15,14 +15,27 @@ const handler = async (req, res) => {
                 }
         }
 
-        const result = await client.search({
+        /* const result = await client.search({
                 index: 'pokemon',
                 query: {
                         'match_phrase_prefix': {
                                  Name: 'Pikachu'
                         }
                 }
+        }) */
+
+        const result = await client.search({
+                index: 'pokemon',
+                query: {
+                        "query_string": {
+                                "fields": ["message", "log.file.path"],
+                                "query": `*${search}* OR ${search}~`
+                        }
+                },
+                'from': thePage,
+                'size': 10
         })
+
 
         res.status(200).json({ success: true, data: result, lol: "lol" })
 }

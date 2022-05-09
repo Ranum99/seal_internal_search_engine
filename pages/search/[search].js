@@ -18,18 +18,18 @@ const Search = () => {
 
   useEffect(() => {
     setSearchInput(search)
-    getSearchResults()
+    getSearchResults(search)
   }, [search])
 
   useEffect(() => {
-    getSearchResults()
+    getSearchResults(searchInput)
   }, [page])
 
-  const getSearchResults = async () => {
+  const getSearchResults = async (search) => {
     try {
       const response = await axios({
         method: 'POST',
-        url: `../api/search/${searchInput}`,
+        url: `../api/search/${search}`,
         data: {
                 page: page
         }
@@ -73,32 +73,40 @@ const Search = () => {
     window.open(evt.currentTarget.innerHTML)
   }
 
+  const goHome = (evt) => {
+    router.push("../")
+  }
+
   return (
     <>
       <nav>
-        <Image src={logo} alt="Logo for Seal Engineering AS" />
+        <Image src={logo} id="logo" alt="Logo for Seal Engineering AS" />
         <form onSubmit={handleSubmit}>
           {error && <p>{error}</p>}
           <input onChange={handleChange} placeholder="Skriv inn søk her..." type="text" value={searchInput}/>
           <input type="submit" value="Søk"/>
         </form>
       </nav>
-      <main>
-        <p>{`Antall resultater: ${searchResults?.total?.value}`}</p>
-        <div>
-                {page != 0 && <p onClick={pageDown}>Forrige side</p>}
-                <p onClick={pageUp}>Neste side</p>
-        </div>
-        {searchResults?.hits?.map(result =>
-          <div key={result._id}>
-            <p><strong>Filename: </strong>{result._source.log.file.path.split("/").at(-1)}</p>
-            <p>{result._source.message}</p>
-            <p onClick={openFile}>{result._source.log.file.path}</p>
+      <main id="search">
+        <div id="firstLine">
+          <p>{`Antall resultater: ${searchResults?.total?.value}`}</p>
+          <div>
+                  {page != 0 && <p onClick={pageDown}>Forrige side</p>}
+                  <p onClick={pageUp}>Neste side</p>
           </div>
-        )}
-        <div>
+        </div>
+        <div id="results">
+          {searchResults?.hits?.map(result =>
+            <div key={result._id}>
+              <p><strong>Filename: </strong>{result._source.log.file.path.split("/").at(-1)}</p>
+              <p>{result._source.message}</p>
+              <p onClick={openFile}>{result._source.log.file.path}</p>
+            </div>
+          )}
+        </div>
+        <div id="lastLine">
                 {page != 0 && <p onClick={pageDown}>Forrige side</p>}
-                <p onClick={pageUp}>Neste side</p>
+                {(searchResults?.total?.value > 10 ) && <p onClick={pageUp}>Neste side</p>}
         </div>
       </main>
     </>

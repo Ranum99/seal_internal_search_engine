@@ -1,0 +1,82 @@
+nav {
+    display: grid;
+    grid-template-columns: 15% 70% 15%;
+    grid-gap: 10px;
+
+    #logo{
+        width: 50%;
+        height: 50%;
+        cursor: pointer;
+    }
+
+    form {
+        margin-top: 10px;
+            display: grid;
+            width: 100%;
+            grid-template-columns: 80% 20%;
+            input[type=text] {
+                    width: 100%;
+                    border: 1px solid black;
+                    font-size: 16px;
+            }
+            input {
+                    padding: 10px;
+                    font-size: 16px;
+            }
+            input[type=submit] {
+                    background-color: white;
+                    border: 1px solid black;
+            }
+            input[type=submit]:hover {
+                    color: white;
+                    cursor: pointer;
+                    background-color: #EF4B4D
+            }
+    }
+}
+
+#search {
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+
+    #firstLine {
+        display: grid;
+        grid-template-columns: 15% 70% 15%;
+
+        p {
+            font-weight: bold;
+        }
+
+        div {  
+            display: flex;
+            justify-content: center;
+            
+            p:last-of-type {
+                margin-left: 15px
+            }
+        }
+    }
+
+    #results {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #results:not(:last-of-type) {
+        border-bottom: 1px dotted black;
+    }
+
+    #lastLine {
+        width: 70%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        font-weight: bold;
+            
+        p:last-of-type {
+            margin-left: 15px
+        }
+    }
+}
