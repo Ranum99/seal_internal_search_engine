@@ -1,3 +1,16 @@
+# Seal - Internal Search Engine
+
+## **Group Members**
+* Aleksander Ranum (Ranum99)
+* Snorre Widnes (SnorreW)
+
+## **Project description**
+This repository contains the code written for a bachelor project at a higher education institution. The project aimed to create an internal search engine for a local company.
+
+The goal of the project was to build an internal search engine for the company to make a single search and getting data from multiple sources like databases, local computers, and other third-party platforms the company had data on. 
+
+The procjets frontend is built with JavaScript (Next.js) and SCSS while the backend is written in Node.js which connects to an instance of Elasticsearch running in the background.
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
